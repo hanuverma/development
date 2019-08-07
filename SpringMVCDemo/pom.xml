@@ -37,12 +37,21 @@
          <scope>provided</scope>
      </dependency>
            
-      <dependency>
+     <!--  <dependency>
           <groupId>org.postgresql</groupId>
           <artifactId>postgresql</artifactId>
           <version>9.3-1102-jdbc41</version>
           <optional>true</optional>
-      </dependency>
+      </dependency> -->
+      
+      <dependency>
+	    <groupId>com.oracle</groupId>
+	    <artifactId>ojdbc14</artifactId>
+	    <version>10.2.0.4.0</version>
+	   <scope>system</scope>
+    	<systemPath>E:\\Jars\ojdbc14.jar</systemPath>
+	</dependency>
+
     <dependency>
       <groupId>javax.transaction</groupId>
       <artifactId>jta</artifactId>

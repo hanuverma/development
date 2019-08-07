@@ -13,7 +13,7 @@ import javax.persistence.Table;
 public class Address {
 
 	@Id
-	@GeneratedValue(strategy=GenerationType.SEQUENCE)
+	@GeneratedValue(strategy=GenerationType.AUTO)
 	private Integer address_id;
 	private String add_city;
 	

@@ -1,11 +1,13 @@
 package com.headway.tutorial.spring;
 
 import java.sql.SQLException;
+import java.util.ArrayList;
 import java.util.List;
 
 import org.springframework.context.annotation.AnnotationConfigApplicationContext;
 
 import com.headway.tutorial.spring.config.AppConfig;
+import com.headway.tutorial.spring.entity.Address;
 import com.headway.tutorial.spring.entity.User;
 import com.headway.tutorial.spring.service.UserService;
 
@@ -20,11 +22,19 @@ public class MainApp {
 
       UserService userService = context.getBean(UserService.class);
 
+      User u =new User("Sunil", "Bora", "suni.bora@example.com");
       // Add Users
-      userService.add(new User("Sunil", "Bora", "suni.bora@example.com"));
-      userService.add(new User("David", "Miller", "david.miller@example.com"));
-      userService.add(new User("Sameer", "Singh", "sameer.singh@example.com"));
-      userService.add(new User("Paul", "Smith", "paul.smith@example.com"));
+      List<Address> addList = new ArrayList<>();
+      Address ad = new Address("india","up",1L);
+      ad.setUser(u);
+      addList.add(ad);
+     
+      u.setAddress(addList);
+      userService.add(u);
+      
+      //userService.add(new User("David", "Miller", "david.miller@example.com"));
+      //userService.add(new User("Sameer", "Singh", "sameer.singh@example.com"));
+      //userService.add(new User("Paul", "Smith", "paul.smith@example.com"));
 
       // Get Users
       List<User> users = userService.listUsers();

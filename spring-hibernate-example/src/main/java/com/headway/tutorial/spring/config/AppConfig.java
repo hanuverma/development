@@ -16,6 +16,7 @@ import org.springframework.orm.hibernate5.HibernateTransactionManager;
 import org.springframework.orm.hibernate5.LocalSessionFactoryBean;
 import org.springframework.transaction.annotation.EnableTransactionManagement;
 
+import com.headway.tutorial.spring.entity.Address;
 import com.headway.tutorial.spring.entity.User;
 /**
  * @author imssbora
@@ -54,7 +55,7 @@ public class AppConfig {
       props.put("hibernate.dialect", env.getProperty("hibernate.dialect"));
 
       factoryBean.setHibernateProperties(props);
-      factoryBean.setAnnotatedClasses(User.class);
+      factoryBean.setAnnotatedClasses(User.class,Address.class);
       return factoryBean;
    }
 

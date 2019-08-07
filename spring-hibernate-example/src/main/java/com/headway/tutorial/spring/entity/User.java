@@ -1,10 +1,14 @@
 package com.headway.tutorial.spring.entity;
 
+import java.util.List;
+
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
 @Entity
@@ -13,6 +17,7 @@ public class User {
 
    @Id
    @GeneratedValue(strategy = GenerationType.AUTO)
+   @Column(name="user_id")
    private Long id;
 
    @Column(name = "FIRST_NAME")
@@ -24,6 +29,9 @@ public class User {
    @Column(name = "EMAIL")
    private String email;
 
+   @OneToMany(mappedBy="user",cascade = CascadeType.ALL)
+   private List<Address> address;
+   
    public User() {}
    
    public User(String firstName, String lastName, String email) {
@@ -63,4 +71,12 @@ public class User {
    public void setEmail(String email) {
       this.email = email;
    }
+
+public List<Address> getAddress() {
+	return address;
+}
+
+public void setAddress(List<Address> address) {
+	this.address = address;
+}
 }
